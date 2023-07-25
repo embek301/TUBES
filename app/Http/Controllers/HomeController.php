@@ -33,4 +33,11 @@ class HomeController extends Controller
         return view('home', compact('pageTitle', 'jajan','jenis'));
 
     }
+    public function show(string $id)
+    {
+        $pageTitle = ' Detail Jajan';
+        // ELOQUENT
+        $jajan = Jajan::find($id);
+        return view('detail', compact('pageTitle', 'detail', ));
+    }
 }

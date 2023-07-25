@@ -35,12 +35,12 @@
     <section class="section-content">
         <h1 class="text-center p-4">Catalog</h1>
         <div class="container">
+             @foreach ($jajan as $jajan)
             <header class="section-heading">
-                <h3 class="section-title">Snacky Kering</h3>
-                <p>Snacky Kering adalah jenis jajanan pasar yang bertekstur crunchy dan kering yang cocok dijadikan jajanan dikala nugas kamu <3 </p>
+                <h3 class="section-title">{{ $jajan->jenis->name }}</h3>
+                <p>{{ $jajan->jenis->description }} </p>
             </header>
             <div class="row">
-                 @foreach ($jajan as $jajan)
                 <div class="col-6 col-md-3 p-1">
                     <div class="card card-product-grid">
                         <a href="{{ route('jajan.show', ['jajan' => $jajan->id]) }}" class="img-wrap p-2" for="kodeJajan"> <img
@@ -54,7 +54,7 @@
             </div>
         </div>
     </section>
-
+{{-- 
     <section class="section-content">
         <div class="container">
             <header class="section-heading">
@@ -100,6 +100,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
 </html>

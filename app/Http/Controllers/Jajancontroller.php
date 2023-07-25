@@ -70,6 +70,7 @@ class Jajancontroller extends Controller
             //Store File
             $file->store('public/files');
         }
+        
         // ELOQUENT
         $jajan = new Jajan;
         $jajan->kode_jajan = $request->kodeJajan;
