@@ -26,7 +26,7 @@ Route::get('detail/{id}', [HomeController::class, 'show'])->name('show');
 Route::get('profile', ProfileController::class)->name('profile');
 Route::resource('jajan', JajanController::class);
 Route::get('company', CompanyProfileController::class)->name('company');
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

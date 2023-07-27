@@ -1,9 +1,14 @@
-<body>
     <div class="d-flex">
-        <a href="{{ route('jajan.show', ['jajan' => $jajan->id]) }}"
-            class="btn btn-outline-light bg-info btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-        <a href="{{ route('jajan.edit', ['jajan' => $jajan->id]) }}"
-            class="btn btn-outline-warning btn-sm me-2"><i class="bi-pencil-square"></i></a>
+        <div>
+            <a href="{{ route('jajan.show', ['jajan' => $jajan->id]) }}"class="btn btn-outline-light bg-info btn-sm me-2">
+                <i class="bi-person-lines-fill"></i>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('jajan.edit', ['jajan' => $jajan->id]) }}"class="btn btn-outline-warning btn-sm me-2">
+                <i class="bi-pencil-square"></i>
+            </a>
+        </div>
         <div>
             <form action="{{ route('jajan.destroy', ['jajan' => $jajan->id]) }}" method="POST">
                 @csrf
@@ -15,4 +20,3 @@
             </form>
         </div>
     </div>
-</body>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light  shadow-xl" style="background-color: #92C874">
+<nav class="navbar navbar-expand-md navbar-light shadow-xl">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
@@ -31,21 +31,18 @@
 
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
-                @guest
-
-
+                {{-- @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
-
                     @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @endguest
+                @endguest --}}
                 @Auth
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="dropdown-toggle btn btn-outline-dark my-2 ms-md-auto" href="#"
