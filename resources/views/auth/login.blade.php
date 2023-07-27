@@ -57,14 +57,14 @@
                                         {{ __('Login') }}</button>
                                 </div>
                             </div>
-                            <div class="mb-3 text-center">
+                            {{-- <div class="mb-3 text-center">
                                 <div class="mt-1 pt-4">
                                     <h5> Belum punya akun? </h5>
                                     <h6><a href="{{ route('register') }}"
                                             class=" link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                                             style=";color:#fdd782"> Registrasi dulu yuk ! </a></h6>
                                 </div>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
