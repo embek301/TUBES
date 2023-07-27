@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use Validator;
-use Psy\Util\Str;
+use Illuminate\Support\Str;
 use App\Models\Jajan;
 use App\Models\Jenis;
 use App\Exports\JajanExport;
@@ -61,7 +61,10 @@ class Jajancontroller extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $file = $request->file('img');
+
+        //Get files
+
+        $file = $request->file('gambar');
 
         if ($file != null) {
             $originalFilename = $file->getClientOriginalName();
@@ -69,8 +72,9 @@ class Jajancontroller extends Controller
 
             //Store File
             $file->store('public/files');
+
         }
-        
+
         // ELOQUENT
         $jajan = new Jajan;
         $jajan->kode_jajan = $request->kodeJajan;
@@ -78,14 +82,14 @@ class Jajancontroller extends Controller
         $jajan->price = $request->harga;
         $jajan->description = $request->deskripsiJajan;
         $jajan->jenis_id = $request->jenis;
-        
-         if ($file != null) {
+
+        if ($file != null) {
             $jajan->original_filename = $originalFilename;
             $jajan->encrypted_filename = $encryptedFilename;
         }
         $jajan->save();
 
-       
+
         Alert::success('Berhasil ditambahkan', 'Data Jajan berhasil ditambahkan.');
         return redirect()->route('jajan.index');
     }
@@ -141,8 +145,7 @@ class Jajancontroller extends Controller
         }
         // ELOQUENT
         $jajan = Jajan::find($id);
-        $file = $request->file('img');
-
+        $file = $request->file('gambar');
         if ($file != null) {
             $originalFilename = $file->getClientOriginalName();
             $encryptedFilename = $file->hashName();
@@ -173,7 +176,7 @@ class Jajancontroller extends Controller
      */
     public function destroy(string $id)
     {
-        $jajan=Jajan::find($id);
+        $jajan = Jajan::find($id);
         $deletionpath = 'public/files/' . $jajan->encrypted_filename;
         Storage::delete($deletionpath);
         $jajan->delete();
@@ -183,7 +186,7 @@ class Jajancontroller extends Controller
 
     public function getData(Request $request)
     {
-        $jajans =  Jajan::with('jenis');
+        $jajans = Jajan::with('jenis');
         if ($request->ajax()) {
             return datatables()->of($jajans)
                 ->addIndexColumn()
@@ -219,4 +222,3 @@ class Jajancontroller extends Controller
         }
     }
 }
-

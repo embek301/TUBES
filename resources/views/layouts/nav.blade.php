@@ -8,7 +8,7 @@
                 @endphp
                 <img class="img-fluid" src="{{ Vite::asset('resources/images/logo.png') }}"alt="image"
                     style="width: 100px;">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse fw-bold" id="navbarSupportedContent">
                     {{-- <hr class="d-md-none text-white-50"> --}}
                     <ul class="navbar-nav flex-row flex-wrap">
                         <li class="nav-item col-2 col-md-auto"><a href="{{ route('home') }}"
@@ -21,10 +21,10 @@
                                     class="nav-link @if ($currentRouteName == 'jajan.index') active @endif">Daftar
                                     Jajan</a>
                             </li>
-
-                            <li class="nav-item col-2 col-md-auto"><a href="" class="nav-link">Pemesanan</a>
-                            </li>
                         @endauth
+                            <li class="nav-item col-2 col-md-auto">
+                                <a href="{{ route('company') }}" class="nav-link">Profile Perusahaan</a>
+                            </li>
                     </ul>
             </ul>
             <!-- Right Side Of Navbar -->

@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\JajanController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +22,10 @@ use App\Http\Controllers\JajanController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('detail/{id}', [HomeController::class, 'show'])->name('show');
 Route::get('profile', ProfileController::class)->name('profile');
 Route::resource('jajan', JajanController::class);
-
+Route::get('company', CompanyProfileController::class)->name('company');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,6 +36,7 @@ Route::get('/local-disk', function () {
 });
 
 Route::get('/public-disk', function () {
+
     Storage::disk('public')->put('public-example.txt', 'This is public example content');
     return asset('storage/public-example.txt');
 });

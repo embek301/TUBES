@@ -27,10 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         
-        $jajan = Jajan::all();
+        $snack = Jajan::all();
         $jenis = Jenis::all();
         $pageTitle = 'Home';
-        return view('home', compact('pageTitle', 'jajan','jenis'));
+        return view('home', compact('pageTitle', 'snack','jenis'));
 
     }
     public function show(string $id)
@@ -38,6 +38,6 @@ class HomeController extends Controller
         $pageTitle = ' Detail Jajan';
         // ELOQUENT
         $jajan = Jajan::find($id);
-        return view('detail', compact('pageTitle', 'detail', ));
+        return view('jajan.show', compact('pageTitle', 'jajan', ));
     }
 }

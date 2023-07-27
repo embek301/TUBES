@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-sm mt-5">
-        <form action="{{ route('jajan.update', ['jajan' => $jajan->id]) }}" method="POST">
+        <form action="{{ route('jajan.update', ['jajan' => $jajan->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="row justify-content-center">
@@ -74,7 +74,7 @@
                             @enderror
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="img" class="form-label">Gambar Produk</label>
+                            <label for="gambar" class="form-label">Gambar Produk</label>
                             @if ($jajan->original_filename)
                                 <h5>{{ $jajan->original_filename }}</h5>
                                 <a href="{{ route('jajan.downloadFile', ['jajanId' => $jajan->id]) }}"
@@ -86,7 +86,7 @@
                             @endif
                         </div>
                         <div class="col-md-12 mb-3">
-                            <input type="file" class="form-control" name="cv" id="cv">
+                            <input type="file" class="form-control" name="gambar" id="gambar">
                         </div>
                     </div>
                     <hr>
@@ -111,3 +111,4 @@
 
 
 </html>
+    

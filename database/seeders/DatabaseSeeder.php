@@ -9,12 +9,12 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * kemudian seeder yang disebutkan tadi akan dipanggil pada database seeder melalui this call... 
-     */ 
+     */
     public function run(): void
     {
         $this->call([
-            JajanSeeder::class,
             JenisSeeder::class,
+            JajanSeeder::class,
             UserSeeder::class
         ]);
     }

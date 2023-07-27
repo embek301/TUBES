@@ -31,7 +31,7 @@
                         <h5>{{ $jajan->jenis->name }}</h5>
                     </div>
                     <div class="col-md-12 mb-3">
-                        <label for="img" class="form-label">gambar</label>
+                        <label for="gambar" class="form-label">gambar</label>
                         @if ($jajan->original_filename)
                             <h5>{{ $jajan->original_filename }}</h5>
                             <a href="{{ route('jajan.downloadFile', ['jajanId' => $jajan->id]) }}"
@@ -46,7 +46,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12 d-grid">
-                        <a href="{{ route('jajan.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i
+                        <a href="{{ URL::PREVIOUS() }}" class="btn btn-outline-dark btn-lg mt-3"><i
                                 class="bi-arrow-left-circle me-2"></i> Back</a>
                     </div>
                 </div>
